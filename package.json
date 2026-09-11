@@ -1,0 +1,38 @@
+{
+  "name": "lynn-ofertas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "start": "node server.mjs",
+    "preview": "vite preview --host 0.0.0.0 --port 5000",
+    "check": "tsc --noEmit",
+    "test": "vitest run src",
+    "test:e2e": "playwright test",
+    "media:prepare": "node scripts/prepare-media.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.6",
+    "@fontsource-variable/manrope": "^5.2.6",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "sharp": "^0.35.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3",
+    "vitest": "^4.1.11"
+  }
+}

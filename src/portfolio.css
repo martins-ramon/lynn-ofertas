@@ -1,0 +1,101 @@
+/* Offer = object of contracting. Product = a usable AI capability. */
+.portfolio-taxonomy { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; border-block: 1px solid #ffffff12; padding-block: 20px; margin-bottom: 23px; }
+.portfolio-taxonomy > div:first-child { padding-right: 22px; border-right: 1px solid #ffffff15; }
+.portfolio-taxonomy .micro { color: #b6c8ad; font-size: 8px; letter-spacing: 1.2px; }
+.portfolio-taxonomy p { font-size: 12px; margin-top: 9px; color: #a2b0b7; }
+.portfolio-taxonomy strong { color: #cfddd0; font-weight: 500; }
+.classification-label { display: inline-block; color: #afc6d2; font-size: 9px; line-height: 1.6; font-weight: 450; margin-top: 6px; }
+.classification-label.is-offer { color: #c5b7ef; }
+.model-badge.undecided-model { color: #e4bd8c; }
+.portfolio-group-label { color: #9ab8ca; font-size: 8px; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; padding: 0 2px 13px; }
+.future-grid-card { background: #0d1621bb; border-style: dashed; border-color: #506475; justify-content: center; }
+.future-grid-card::after { display: none; }
+.future-grid-card .ellipsis { margin-bottom: 20px; }
+.future-grid-card h4 { font-size: 16px; }
+.future-grid-card p { margin-top: 11px; }
+.future-grid-action { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #b1c3d0; font-size: 10px; padding-top: 10px; }
+.garden-map-exception { border-top: 1px dashed #ceac8150; padding-top: 16px; margin-top: 16px; }
+.garden-map-card { display: flex; flex-direction: row; align-items: center; gap: 18px; width: 100%; min-height: 0; border: 1px dashed #bf9f765c; padding: 17px 20px; }
+.garden-map-card::after { display: none; }
+.garden-map-card > div:nth-of-type(1) { flex: 1; }
+.garden-map-card > div:nth-of-type(2) { display: flex; flex-direction: column; align-items: flex-end; gap: 15px; }
+.garden-map-card p { margin-bottom: 0; }
+.garden-map-detail { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; color: #bdc9b3; }
+.garden-map-exception > p { margin-top: 11px; padding-inline: 4px; font-size: 10px; color: #baad98; line-height: 1.9; }
+.overview-offers > button.overview-garden { border-style: dashed; border-color: #c2a57b88; }
+.overview-garden > div > p { color: #d2c0a2; }
+.store-lab-summary { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.store-choice .classification-label { font-size: 8px; margin: 0; }
+.offer-card-bottom .model-badge { line-height: 1.8; }
+.presentation-offers > div > span { line-height: 1.7; }
+.overview-offers .model-badge { font-size: 8px; }
+.taas-explainer ol { flex-shrink: 1; }
+.taas-explainer li { max-width: 115px; }
+
+/* Garden is a distinct prototype; its screenshots are not Foundation evidence. */
+.garden-current-status { border: 1px solid #bbdda33b; border-radius: 7px; background: #a4c58a06; padding: 20px; margin: 24px 0; }
+.garden-current-status > .micro { color: #b7cd9f; font-size: 8px; }
+.garden-current-status h3 { margin-top: 12px; }
+.garden-current-status p { font-size: 12px; }
+.garden-decisions { display: grid; gap: 12px; }
+.garden-decisions > div { background: #d9b58b05; padding: 18px; border: 1px dashed #c0a38455; border-radius: 6px; }
+.garden-decisions .micro { font-size: 8px; color: #dbbd96; }
+.garden-decisions strong { display: block; font-family: var(--heading); font-size: 16px; font-weight: 500; color: #e1cfb5; margin: 10px 0; }
+.garden-decisions p { color: #b8b4ac; font-size: 11px; line-height: 1.9; }
+.garden-gallery { border: 1px solid #8cae8170; border-radius: 8px; overflow: hidden; background: #0b151c; margin: 10px 0 18px; }
+.garden-gallery .product-screen-tabs { border-top: 0; border-bottom: 1px solid #3b4e57; padding: 12px; flex-wrap: wrap; }
+.garden-gallery .product-screen-tabs > button.selected { background: #b8f29312; color: #cee6b8; border-color: #b8f29355; }
+.garden-screen-open { display: block; position: relative; width: 100%; padding: 0; background: #f7f8fc; overflow: hidden; line-height: 0; }
+.garden-screen-open > img { display: block; width: 100%; height: auto; }
+.garden-screen-open > span { position: absolute; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 7px; padding: 9px 11px; border-radius: 5px; background: #0b1a24f2; border: 1px solid #69887b; color: #d9eec9; font-size: 10px; line-height: 1.5; }
+.garden-screen-open:hover > span { background: #24422c; border-color: #b8f293; }
+.garden-gallery > p { font-size: 11px; line-height: 1.9; padding: 18px; color: #b2c4b7; }
+.garden-details > .text-link { font-size: 12px; padding-block: 10px; }
+.garden-details > .fine-print { margin-top: 6px; }
+
+@media (max-width: 1100px) {
+  .garden-map-card { padding: 16px; }
+  .garden-map-card > div:nth-of-type(2) { max-width: 185px; }
+  .garden-map-card .model-badge { text-align: right; }
+  .overview-header h2 { font-size: 22px; }
+  .overview-arrow { font-size: 8px; }
+}
+
+@media (max-width: 699px) {
+  .portfolio-taxonomy { grid-template-columns: 1fr; gap: 18px; padding-block: 19px; }
+  .portfolio-taxonomy > div:first-child { border-right: 0; border-bottom: 1px solid #ffffff12; padding: 0 0 17px; }
+  .portfolio-taxonomy .micro { font-size: 7px; }
+  .portfolio-taxonomy p { font-size: 11px; line-height: 1.9; }
+  .offers-row .layer-label h3 { max-width: 183px; font-size: 16px; }
+  .offers-row .open-label { max-width: 70px; gap: 4px; font-size: 8px; }
+  .portfolio-group-label { font-size: 7px; line-height: 1.8; letter-spacing: .6px; }
+  .offer-card .classification-label { font-size: 8px; line-height: 1.7; }
+  .future-grid-card h4 { font-size: 15px; }
+  .future-grid-action { font-size: 9px; line-height: 1.8; gap: 6px; }
+  .future-grid-card .ellipsis { margin-bottom: 15px; }
+  .garden-map-card { flex-wrap: wrap; gap: 12px; }
+  .garden-map-card > div:nth-of-type(1) { min-width: 170px; }
+  .garden-map-card > div:nth-of-type(2) { max-width: none; width: 100%; flex-direction: row; align-items: center; justify-content: space-between; border-top: 1px solid #ffffff0c; padding-top: 12px; }
+  .garden-map-card .micro { font-size: 7px; }
+  .garden-map-card h4 { font-size: 20px; }
+  .garden-map-card p { font-size: 11px; }
+  .garden-map-exception > p { font-size: 10px; }
+  .garden-map-card .model-badge { font-size: 9px; }
+  .garden-map-detail { font-size: 9px; }
+  .overview-header h2 { font-size: 25px; }
+  .overview-arrow { font-size: 9px; }
+  .store-lab-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
+  .store-lab-summary span { font-size: 9px; }
+  .garden-gallery .product-screen-tabs { gap: 4px; padding: 9px; }
+  .garden-gallery .product-screen-tabs > button { font-size: 9px; padding: 7px 8px; }
+  .garden-current-status { padding: 18px; }
+  .garden-decisions > div { padding: 17px; }
+  .garden-decisions p { font-size: 12px; }
+  .garden-gallery > p { font-size: 11px; padding: 15px; }
+}
+
+@media print {
+  .portfolio-taxonomy { font-size: 10px; }
+  .classification-label, .portfolio-taxonomy .micro, .portfolio-taxonomy strong, .portfolio-group-label, .garden-map-exception > p { color: #405567; }
+  .garden-map-card { display: flex; background: #f5f6f2; }
+}

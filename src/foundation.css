@@ -1,0 +1,351 @@
+/* Supplied brand artwork: proportions and colours are preserved. */
+.brand-link { display: inline-flex; align-items: center; flex-shrink: 0; }
+.official-brand { display: inline-flex; align-items: center; gap: 19px; flex-shrink: 0; }
+.official-totvs { display: block; width: 106px; height: auto; object-fit: contain; flex-shrink: 0; }
+.official-lynn { display: block; width: 108px; height: auto; object-fit: contain; border-radius: 3px; flex-shrink: 0; }
+.official-brand .brand-divider { height: 26px; }
+.site-header nav { gap: 29px; padding-right: 0; }
+.foundation-name h4, .overview-foundation h3 { display: flex; align-items: center; gap: 12px; }
+.foundation-name .official-lynn { width: 101px; }
+.overview-foundation .official-lynn { width: 93px; }
+.overview-brandline .official-totvs { width: 59px; }
+.overview-brandline { gap: 14px; }
+.foundation-tour-link { display: inline-flex; align-items: center; gap: 8px; color: #b7dbe7; font-size: 11px; padding: 14px 0 2px; }
+.foundation-tour-link:hover { color: white; }
+.closing-brand { display: flex; align-items: center; justify-content: center; margin-bottom: 28px; padding: 13px 17px; background: #002b3350; border: 1px solid #9bcfe533; border-radius: 11px; box-shadow: 0 0 55px #9acbea0a; }
+.closing-brand .official-lynn { width: 165px; }
+.site-footer .official-brand { gap: 17px; }
+.site-footer .official-totvs { width: 93px; }
+.site-footer .official-lynn { width: 95px; }
+
+/* A guided view of the real product, distinct from the commercial simulation. */
+.foundation-tour { padding-top: 65px; padding-bottom: 95px; border-top: 1px solid #9fb6cb26; }
+.foundation-tour .section-heading { margin-bottom: 39px; }
+.foundation-signature { display: flex; flex-direction: column; align-items: flex-end; gap: 15px; flex-shrink: 0; padding-bottom: 7px; }
+.foundation-signature .official-lynn { width: 201px; border-radius: 5px; }
+.foundation-signature > span { color: #97b6c7; font-size: 7px; letter-spacing: 1.6px; }
+.foundation-tabs { display: flex; gap: 11px; padding-bottom: 24px; }
+.foundation-tabs > button { display: flex; align-items: center; gap: 12px; flex: 1; text-align: left; padding: 16px 19px; border: 1px solid #344352; border-radius: 8px; background: #0e1721; color: #a1b1c4; }
+.foundation-tabs > button.selected { color: var(--accent); border-color: color-mix(in srgb, var(--accent), transparent 42%); background: linear-gradient(120deg, var(--tint), #101a26); box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent), transparent 40%); }
+.foundation-tabs > button:hover { border-color: var(--accent); }
+.foundation-tabs > button > span:nth-of-type(1) { display: flex; align-items: center; gap: 13px; }
+.foundation-tabs strong { font-size: 12px; font-weight: 500; }
+.foundation-tabs small { font-size: 9px; color: #8e9fae; }
+.pillar-tab-number { margin-left: auto; color: #778d9f; font-size: 9px; font-variant-numeric: tabular-nums; }
+.foundation-tabs .selected .pillar-tab-number { color: var(--accent); }
+.foundation-tour-panel { display: grid; grid-template-columns: .8fr 1.9fr; gap: 41px; padding-top: 16px; align-items: start; }
+.pillar-story { padding-top: 9px; animation: reveal .3s ease-out; }
+.pillar-story > .micro { color: var(--accent); font-size: 8px; letter-spacing: 1.5px; }
+.pillar-story h3 { font-size: 29px; line-height: 1.3; letter-spacing: -1px; margin: 16px 0 19px; }
+.pillar-story > p { font-size: 12px; line-height: 1.9; color: #a4b2bd; }
+.pillar-value { display: flex; align-items: flex-start; gap: 10px; border-block: 1px solid #ffffff12; padding: 16px 0; margin: 22px 0 24px; color: var(--accent); }
+.pillar-value svg { margin-top: 4px; }
+.pillar-value p { font-size: 11px; line-height: 1.9; color: #c1cbd3; }
+.pillar-story > .screen-guide-label { display: block; font-size: 7px; letter-spacing: 1.1px; color: #96a8b5; margin-bottom: 13px; }
+.screen-highlights { display: flex; flex-direction: column; gap: 8px; }
+.screen-highlights > button { display: flex; align-items: center; gap: 11px; border: 1px solid #35424f; border-radius: 6px; padding: 12px; text-align: left; color: #a0b0bd; background: #ffffff01; }
+.screen-highlights > button > span { width: 22px; height: 22px; display: grid; place-items: center; font-size: 9px; border-radius: 50%; border: 1px solid #607489; flex-shrink: 0; }
+.screen-highlights strong { font-size: 11px; font-weight: 450; line-height: 1.5; }
+.screen-highlights > button > svg { margin-left: auto; }
+.screen-highlights > button.selected { background: var(--tint); border-color: color-mix(in srgb, var(--accent), transparent 55%); color: #d2dfe9; }
+.screen-highlights > button.selected > span { border-color: var(--accent); color: var(--accent); }
+.screen-highlights > button:hover { border-color: var(--accent); }
+.product-gallery { min-width: 0; }
+.product-window { background: linear-gradient(#101924, #101924) padding-box, linear-gradient(135deg, #b9adf277, #86dbe444) border-box; border: 1px solid transparent; border-radius: 11px; overflow: hidden; box-shadow: 0 25px 65px #00000040, 0 0 65px #a4a3dd06; }
+.product-window-bar { display: flex; align-items: center; gap: 17px; min-height: 47px; background: #edf1f5; padding: 10px 14px; border-bottom: 1px solid #ccd2df; color: #445369; }
+.product-window-bar .official-totvs { width: 66px; }
+.product-window-bar > span { font-size: 9px; border-left: 1px solid #acbbca; padding-left: 15px; }
+.product-window-bar .window-path { color: #526176; font-size: 8px; }
+.product-window-bar > button { margin-left: auto; display: flex; align-items: center; gap: 5px; color: #34465e; background: #fff8; border: 1px solid #becad9; border-radius: 4px; padding: 6px 8px; font-size: 9px; }
+.product-window-bar > button:hover { background: white; border-color: #615590; }
+.product-window-bar > button:focus-visible { outline-color: #5842a8; }
+.product-screen-stage { display: grid; align-items: center; min-height: 370px; background: #f0f1f5; }
+.product-screen-image { position: relative; width: 100%; line-height: 0; }
+.product-screen-image > img { display: block; width: 100%; height: auto; }
+.screen-hotspot { position: absolute; transform: translate(-50%, -50%); width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; background: #6843a8; color: white; display: grid; place-items: center; font-size: 11px; font-weight: 600; line-height: 1; box-shadow: 0 2px 8px #19254666; }
+.screen-hotspot.selected { background: #50328d; box-shadow: 0 0 0 6px #9c73dd44, 0 0 0 12px #b5a1ea26, 0 3px 12px #12182a60; }
+.screen-hotspot:hover { background: #3e2673; }
+.screen-hotspot:focus-visible { outline-color: #372076; outline-offset: 7px; }
+.product-screen-tabs { display: flex; align-items: center; gap: 5px; padding: 10px 13px; border-top: 1px solid #485d7133; }
+.product-screen-tabs > button { border: 1px solid transparent; border-radius: 4px; padding: 6px 11px; font-size: 10px; color: #a4b3c4; }
+.product-screen-tabs > button.selected { color: #d5cbf3; border-color: #b9adf24d; background: #b9adf210; }
+.product-screen-tabs > button:hover { color: white; background: #b9adf21a; }
+.product-screen-tabs > span { font-size: 9px; color: #90a5b9; margin-left: auto; }
+.screen-explanation { display: flex; align-items: flex-start; gap: 15px; padding: 20px 0 13px; }
+.explanation-index { font-family: var(--heading); font-size: 29px; font-weight: 400; color: var(--accent); opacity: .85; line-height: 1.1; }
+.screen-explanation strong { display: block; font-size: 13px; font-weight: 500; margin-bottom: 7px; color: #d1dce4; }
+.screen-explanation p { font-size: 11px; line-height: 1.85; color: #a2b4c3; max-width: 680px; }
+.screen-reference { padding-top: 13px; border-top: 1px solid #ffffff13; font-size: 9px; color: #899eae; line-height: 1.9; }
+.intelligence-loop { margin-top: 43px; padding: 22px 26px; background: #8ad6f004; border: 1px solid #9ab6dd2c; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+.intelligence-loop > div { display: flex; align-items: center; gap: 14px; color: #a5bfdd; }
+.intelligence-loop h3 { font-size: 16px; color: #c4d9e9; font-weight: 500; }
+.intelligence-loop p { font-size: 10px; margin-top: 7px; color: #93a9ba; }
+.intelligence-loop ol { display: flex; align-items: center; gap: 20px; list-style: none; padding: 0; margin: 0; color: #bcc5df; }
+.intelligence-loop li { font-size: 10px; line-height: 1.7; position: relative; padding-left: 15px; }
+.intelligence-loop li::before { content: '→'; position: absolute; left: -3px; color: #8ba9c3; }
+.ai-enablers { padding-top: 48px; margin-top: 44px; border-top: 1px solid #ffffff12; display: grid; grid-template-columns: 1fr 2.4fr; gap: 41px; }
+.enablers-intro .micro { font-size: 8px; color: #b5c5ba; }
+.enablers-intro h3 { font-size: 24px; line-height: 1.4; letter-spacing: -.8px; margin-block: 13px; }
+.enablers-intro p { font-size: 11px; max-width: 240px; color: #a2b797; }
+.enablers-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.enablers-grid details { border: 1px solid #52674166; border-radius: 8px; background: #b8f29304; overflow: hidden; }
+.enablers-grid summary { cursor: pointer; list-style: none; display: flex; flex-direction: column; position: relative; align-items: flex-start; gap: 17px; color: #acc799; padding: 24px 20px; }
+.enablers-grid summary::-webkit-details-marker { display: none; }
+.enablers-grid summary > span { display: flex; flex-direction: column; gap: 7px; }
+.enablers-grid strong { font-family: var(--heading); color: #d1dec7; font-size: 17px; font-weight: 500; }
+.enablers-grid small { font-size: 10px; color: #99ac8d; }
+.enablers-grid summary > svg:last-child { position: absolute; top: 27px; right: 17px; transition: transform .2s; }
+.enablers-grid details[open] summary > svg:last-child { transform: rotate(180deg); }
+.enablers-grid details > p { font-size: 11px; padding: 0 20px 22px; color: #a7b6a1; line-height: 1.8; }
+
+/* Keep originals readable without downloading source documents. */
+.product-lightbox { width: min(1500px, calc(100vw - 40px)); height: calc(100dvh - 40px); max-height: calc(100dvh - 40px); }
+.product-lightbox .modal-content { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 25px 28px 23px; }
+.product-lightbox-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-right: 44px; flex-shrink: 0; }
+.product-lightbox-header .official-totvs { width: 78px; }
+.product-lightbox-header .official-lynn { width: 82px; }
+.product-lightbox-header .official-brand { gap: 13px; }
+.product-lightbox-header .micro { font-size: 8px; color: #a7bed1; }
+.product-lightbox h2 { flex-shrink: 0; font-size: 24px; line-height: 1.35; margin: 21px 0 18px; }
+.product-lightbox-viewer { flex: 1; min-height: 0; overflow: auto; background: #e8eaf0; border: 1px solid #7892ad77; border-radius: 6px; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #687889 #e8eaf0; }
+.product-lightbox-viewer .image-fit { display: block; width: 100%; height: 100%; object-fit: contain; }
+.product-lightbox-viewer .image-original-size { display: block; max-width: none; object-fit: none; }
+.product-lightbox-viewer:focus-visible { outline-color: var(--cyan); outline-offset: 3px; }
+.product-lightbox-description { padding: 16px 0; flex-shrink: 0; }
+.product-lightbox-description p { font-size: 12px; color: #b1c0ce; line-height: 1.8; }
+.product-lightbox-description > span { display: block; color: #8ea2b8; font-size: 8px; margin-top: 8px; overflow-wrap: anywhere; line-height: 1.7; }
+.product-lightbox-controls { display: flex; justify-content: space-between; gap: 15px; align-items: center; flex-shrink: 0; }
+.product-lightbox-controls > div { display: flex; align-items: center; gap: 10px; }
+.product-lightbox-controls > div > span { font-size: 10px; color: #a3b7c9; margin-left: 4px; }
+.product-lightbox-controls > button { font-size: 11px; min-height: 40px; padding: 9px 14px; }
+
+/* TaaS explains the unit of work; the existing journey explains credit mechanics. */
+.taas-explainer { display: flex; justify-content: space-between; align-items: center; gap: 36px; padding: 23px 26px; border: 1px solid #b8f29329; border-radius: 8px; background: #b8f29305; margin: 0 0 25px; }
+.taas-explainer > div { flex: 1; max-width: 550px; }
+.taas-explainer .micro { font-size: 8px; color: #acc699; }
+.taas-explainer h3 { font-size: 20px; font-weight: 500; letter-spacing: -.4px; margin: 10px 0; color: #d2e8c2; }
+.taas-explainer p { color: #a5b19e; font-size: 11px; line-height: 1.85; }
+.taas-explainer ol { display: flex; gap: 33px; list-style: none; margin: 0; padding: 0; color: #b3d698; flex-shrink: 0; }
+.taas-explainer li { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.taas-explainer li + li::before { content: '→'; position: absolute; left: -22px; top: 3px; color: #8ca679; font-size: 13px; }
+.taas-explainer li > span { font-size: 9px; color: #c2d1b9; }
+.presentation-platform { border: 1px solid #b9adf244; border-radius: 11px; background: linear-gradient(135deg, #181c30, #102630); padding: 24px; }
+.presentation-platform > .official-lynn { width: 155px; margin: 0 0 25px; }
+.presentation-platform-screen { overflow: hidden; border: 1px solid #b9adf266; border-radius: 7px; background: #e2e5eb; box-shadow: 0 12px 35px #0003; }
+.presentation-platform-screen > img { display: block; width: 100%; height: auto; }
+.presentation-platform-pillars { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 22px; }
+.presentation-platform-pillars > span { font-size: 10px; line-height: 1.6; color: #c4d7eb; }
+.presentation-platform > small { display: block; font-size: 8px; color: #9fb1c8; margin-top: 18px; }
+
+@media (min-width: 1600px) {
+  .pillar-story h3 { font-size: 32px; }
+  .pillar-story > p { font-size: 13px; }
+  .pillar-value p { font-size: 12px; }
+  .product-screen-stage { min-height: 410px; }
+}
+
+@media (max-width: 1199px) {
+  .site-header nav { gap: 23px; }
+  .official-brand { gap: 14px; }
+  .official-brand .official-totvs { width: 92px; }
+  .official-brand .official-lynn { width: 98px; }
+  .foundation-tour-panel { gap: 28px; grid-template-columns: .85fr 1.65fr; }
+  .pillar-story h3 { font-size: 25px; }
+  .pillar-story > p { font-size: 11px; }
+  .pillar-value p { font-size: 10px; }
+  .product-screen-stage { min-height: 290px; }
+  .product-window-bar .window-path { display: none; }
+  .screen-reference { font-size: 9px; }
+  .foundation-signature .official-lynn { width: 170px; }
+  .foundation-signature > span { font-size: 6px; }
+  .foundation-tabs > button { padding: 15px; }
+  .foundation-tabs strong { font-size: 11px; }
+  .foundation-tabs > button > span:nth-of-type(1) { gap: 9px; }
+  .intelligence-loop { gap: 25px; padding-inline: 20px; }
+  .intelligence-loop ol { gap: 12px; }
+  .intelligence-loop li { font-size: 9px; }
+  .ai-enablers { gap: 25px; grid-template-columns: 1fr 2.5fr; }
+  .enablers-intro h3 { font-size: 21px; }
+  .enablers-grid summary { padding: 20px 16px; }
+  .enablers-grid strong { font-size: 15px; }
+  .enablers-grid small { font-size: 9px; }
+  .enablers-grid summary > svg:last-child { right: 14px; top: 24px; }
+  .enablers-grid details > p { padding-inline: 16px; }
+  .taas-explainer { gap: 25px; padding: 21px; }
+  .taas-explainer ol { gap: 25px; }
+  .taas-explainer li + li::before { left: -17px; }
+  .taas-explainer li > span { font-size: 8px; }
+}
+
+@media (max-width: 959px) {
+  .site-header nav { gap: 17px; }
+  .official-brand { gap: 11px; }
+  .official-brand .official-totvs { width: 85px; }
+  .official-brand .official-lynn { width: 90px; }
+  .foundation-tour { padding-top: 50px; padding-bottom: 70px; }
+  .foundation-tour .section-heading { flex-direction: row; gap: 30px; }
+  .foundation-tour .section-heading h2 { font-size: 32px; }
+  .foundation-signature .official-lynn { width: 150px; }
+  .foundation-signature > span { max-width: 148px; line-height: 1.8; text-align: right; }
+  .foundation-tour-panel { grid-template-columns: 1fr; gap: 25px; }
+  .pillar-story { padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; }
+  .pillar-story > .micro:not(.screen-guide-label) { grid-column: 1 / -1; }
+  .pillar-story h3 { grid-row: 2; grid-column: 1; font-size: 29px; margin-bottom: 15px; }
+  .pillar-story > p { grid-column: 1; grid-row: 3 / span 2; font-size: 12px; }
+  .pillar-value { grid-column: 2; grid-row: 2; margin: 16px 0; padding-block: 12px; }
+  .pillar-value p { font-size: 11px; }
+  .pillar-story > .screen-guide-label { grid-column: 2; grid-row: 3; margin: 0 0 10px; font-size: 7px; align-self: start; }
+  .screen-highlights { grid-column: 2; grid-row: 4; margin-top: 0; }
+  .screen-highlights > button { padding: 10px; }
+  .screen-highlights strong { font-size: 10px; }
+  .product-screen-stage { min-height: 350px; }
+  .product-window-bar .window-path { display: inline; }
+  .screen-explanation strong { font-size: 14px; }
+  .screen-explanation p { font-size: 12px; }
+  .intelligence-loop { flex-direction: column; align-items: stretch; gap: 22px; padding: 25px; }
+  .intelligence-loop ol { justify-content: space-between; gap: 13px; padding-left: 35px; }
+  .intelligence-loop li { font-size: 10px; }
+  .ai-enablers { grid-template-columns: 1fr; gap: 25px; padding-top: 35px; margin-top: 35px; }
+  .enablers-intro h3 { font-size: 24px; }
+  .enablers-intro h3 br { display: none; }
+  .enablers-intro p { max-width: none; font-size: 12px; }
+  .taas-explainer { flex-direction: column; align-items: stretch; gap: 25px; }
+  .taas-explainer > div { max-width: none; }
+  .taas-explainer ol { justify-content: space-around; }
+  .taas-explainer li > span { font-size: 10px; }
+  .taas-explainer li + li::before { left: -46px; }
+  .product-lightbox h2 { font-size: 21px; }
+  .product-lightbox-description p { font-size: 11px; }
+  .presentation-platform { padding: 18px; }
+  .presentation-platform-pillars > span { font-size: 8px; }
+}
+
+@media (max-width: 820px) and (min-width: 700px) {
+  .header-inner { gap: 14px; }
+  .official-brand { gap: 10px; }
+  .official-brand .official-totvs { width: 71px; }
+  .official-brand .official-lynn { width: 77px; }
+  .site-header nav { gap: 12px; }
+  .site-header nav a { font-size: 10px; }
+  .presentation-button { padding-inline: 10px; font-size: 10px; }
+}
+
+@media (max-width: 699px) {
+  .header-inner { gap: 12px; }
+  .official-brand { gap: 10px; }
+  .official-brand .official-totvs { width: 80px; }
+  .official-brand .official-lynn { width: 82px; }
+  .official-brand .brand-divider { height: 21px; }
+  .foundation-name .official-lynn { width: 94px; }
+  .overview-foundation .official-lynn { width: 84px; }
+  .overview-brandline .official-totvs { width: 55px; }
+  .foundation-tour-link { font-size: 10px; line-height: 1.7; }
+  .foundation-tour { padding-top: 43px; padding-bottom: 60px; }
+  .foundation-tour .section-heading { flex-direction: column; gap: 22px; margin-bottom: 29px; }
+  .foundation-tour .section-heading h2 { font-size: 31px; }
+  .foundation-signature { flex-direction: row; width: 100%; align-items: center; gap: 20px; }
+  .foundation-signature .official-lynn { width: 145px; }
+  .foundation-signature > span { text-align: left; max-width: 145px; font-size: 7px; line-height: 1.8; letter-spacing: 1px; }
+  .foundation-tabs { gap: 7px; padding-bottom: 23px; }
+  .foundation-tabs > button { flex-direction: column; align-items: flex-start; gap: 13px; padding: 14px 11px; min-width: 0; }
+  .foundation-tabs > button > span:nth-of-type(1) { flex-direction: column; align-items: flex-start; gap: 7px; }
+  .foundation-tabs strong { font-size: 10px; line-height: 1.5; }
+  .foundation-tabs small { font-size: 9px; }
+  .pillar-tab-number { display: none; }
+  .foundation-tour-panel { padding-top: 0; gap: 24px; }
+  .pillar-story { display: block; }
+  .pillar-story h3 { font-size: 29px; margin-top: 14px; }
+  .pillar-story > p { font-size: 13px; line-height: 1.9; }
+  .pillar-value { margin-block: 21px; padding-block: 14px; }
+  .pillar-value p { font-size: 12px; }
+  .pillar-story > .screen-guide-label { margin-bottom: 14px; font-size: 8px; }
+  .screen-highlights > button { padding: 11px 12px; }
+  .screen-highlights strong { font-size: 12px; }
+  .product-window { border-radius: 8px; }
+  .product-window-bar { min-height: 43px; gap: 10px; padding: 8px 10px; }
+  .product-window-bar .official-totvs { width: 49px; }
+  .product-window-bar > span { font-size: 8px; padding-left: 10px; }
+  .product-window-bar .window-path { display: none; }
+  .product-window-bar > button { padding: 6px; gap: 4px; }
+  .product-window-bar > button > span { display: none; }
+  .product-screen-stage { min-height: 185px; }
+  .screen-hotspot { width: 25px; height: 25px; font-size: 10px; }
+  .screen-hotspot.selected { box-shadow: 0 0 0 4px #9c73dd44, 0 0 0 8px #b5a1ea26, 0 3px 8px #12182a60; }
+  .product-screen-tabs { padding: 9px; gap: 3px; }
+  .product-screen-tabs > button { font-size: 9px; padding: 7px 9px; }
+  .product-screen-tabs > span { font-size: 8px; padding-right: 3px; }
+  .screen-explanation { gap: 13px; padding-top: 21px; }
+  .screen-explanation p { font-size: 12px; }
+  .screen-reference { font-size: 10px; }
+  .intelligence-loop { margin-top: 29px; padding: 20px 17px; gap: 21px; }
+  .intelligence-loop h3 { font-size: 16px; }
+  .intelligence-loop p { font-size: 11px; line-height: 1.8; }
+  .intelligence-loop ol { padding-left: 8px; gap: 15px; flex-direction: column; align-items: flex-start; }
+  .intelligence-loop li { font-size: 11px; padding-left: 24px; }
+  .intelligence-loop li::before { left: 0; }
+  .enablers-intro h3 { font-size: 25px; }
+  .enablers-intro h3 br { display: initial; }
+  .enablers-grid { grid-template-columns: 1fr; gap: 10px; }
+  .enablers-grid summary { flex-direction: row; align-items: center; gap: 16px; padding: 19px; }
+  .enablers-grid summary > svg:last-child { position: static; margin-left: auto; }
+  .enablers-grid strong { font-size: 17px; }
+  .enablers-grid small { font-size: 10px; }
+  .enablers-grid details > p { font-size: 12px; padding: 0 19px 20px; }
+  .taas-explainer { padding: 20px; gap: 24px; }
+  .taas-explainer h3 { font-size: 21px; line-height: 1.4; }
+  .taas-explainer p { font-size: 12px; }
+  .taas-explainer ol { gap: 20px; justify-content: space-between; }
+  .taas-explainer li { flex: 1; gap: 10px; }
+  .taas-explainer li + li::before { left: -15px; }
+  .taas-explainer li > span { font-size: 9px; line-height: 1.7; }
+  .product-lightbox { width: 100vw; height: 100dvh; max-width: 100vw; max-height: 100dvh; border: 0; border-radius: 0; }
+  .product-lightbox .modal-content { padding: 22px 18px 20px; }
+  .product-lightbox-header { gap: 10px; padding-right: 37px; }
+  .product-lightbox-header .official-totvs { width: 61px; }
+  .product-lightbox-header .official-lynn { width: 68px; }
+  .product-lightbox-header .official-brand { gap: 9px; }
+  .product-lightbox-header .micro { font-size: 6px; line-height: 1.8; letter-spacing: .9px; text-align: right; }
+  .product-lightbox .modal-close { width: 32px; height: 32px; right: 14px; top: 17px; }
+  .product-lightbox h2 { font-size: 23px; margin: 27px 0 20px; }
+  .product-lightbox-viewer { border-radius: 5px; }
+  .product-lightbox-description { padding-block: 17px; }
+  .product-lightbox-description p { font-size: 11px; }
+  .product-lightbox-description > span { font-size: 8px; }
+  .product-lightbox-controls { gap: 8px; }
+  .product-lightbox-controls > div { gap: 7px; }
+  .product-lightbox-controls .icon-button { width: 33px; height: 35px; }
+  .product-lightbox-controls > div > span { font-size: 9px; margin-left: 1px; }
+  .product-lightbox-controls > button { padding: 9px; font-size: 9px; gap: 7px; }
+  .product-lightbox-controls > button > svg:last-child { display: none; }
+  .presentation-top .official-brand { gap: 9px; }
+  .presentation-top .official-totvs { width: 64px; }
+  .presentation-top .official-lynn { width: 69px; }
+  .presentation-top > .micro { max-width: 100px; text-align: right; font-size: 6px; }
+  .presentation-platform { padding: 18px; }
+  .presentation-platform > .official-lynn { width: 127px; margin-bottom: 17px; }
+  .presentation-platform-pillars { gap: 8px; }
+  .presentation-platform-pillars > span { font-size: 8px; }
+  .closing-brand .official-lynn { width: 149px; }
+}
+
+@media (max-width: 374px) {
+  .header-inner { gap: 8px; }
+  .site-header .official-brand { gap: 8px; }
+  .site-header .official-totvs { width: 67px; }
+  .site-header .official-lynn { width: 73px; }
+  .foundation-tour .section-heading h2 { font-size: 28px; }
+  .foundation-signature > span { font-size: 6px; }
+  .foundation-signature .official-lynn { width: 128px; }
+  .foundation-tabs { gap: 5px; }
+  .foundation-tabs > button { padding: 12px 9px; }
+  .foundation-tabs strong { font-size: 9px; }
+  .product-lightbox-header .micro { display: none; }
+  .product-lightbox-controls { flex-wrap: wrap; }
+  .product-lightbox-controls > button { margin-left: auto; }
+}
+
+@media print {
+  .foundation-tour { display: none; }
+  .official-lynn { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .foundation-tour-link { display: none; }
+}
