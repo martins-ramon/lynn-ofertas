@@ -6,6 +6,6 @@ export default defineConfig({
   server: {
     port: Number(process.env.PORT) || 5000,
     strictPort: true,
-    allowedHosts: ['.replit.dev', '.repl.co', '.replit.app'],
+    allowedHosts: true,
   },
 });
