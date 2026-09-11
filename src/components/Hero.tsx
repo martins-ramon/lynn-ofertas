@@ -54,7 +54,7 @@ export default function Hero({ onPresent }: { onPresent: () => void }) {
   return <section className="hero section-shell" aria-labelledby="hero-title">
     <div className="hero-copy">
       <div className="eyebrow hero-eyebrow"><span className="status-dot" />O UNIVERSO DE IA DA TOTVS</div>
-      <h1 id="hero-title">Uma base.<br />Infinitas<br /><span>possibilidades.</span></h1>
+      <h1 id="hero-title">Um foundation.<br />Infinitas<br /><span>possibilidades.</span></h1>
       <p>Você contrata ofertas. Utiliza produtos de IA. Entenda como T-Coins, soluções OES, Agentes Padrão e LYNN Garden se organizam — e qual é o papel do Foundation LYNN.</p>
       <div className="hero-actions"><a href="#ecossistema" className="button primary">Explore o ecossistema<ArrowUpRight size={19} /></a><button className="button quiet" onClick={onPresent}><Play size={16} />Comece pela visão geral</button></div>
       <div className="hero-meta"><span>Uma experiência interativa</span><span className="meta-divider" />Universo TOTVS · 2026</div>

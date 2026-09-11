@@ -102,7 +102,7 @@ test('apresentação navega por teclado e devolve o foco ao sair', async ({ page
   const trigger = page.getByRole('button', { name: 'Apresentar', exact: true });
   await trigger.click();
   const dialog = page.getByRole('dialog');
-  await expect(dialog.locator('#presentation-title')).toContainText('Uma base.');
+  await expect(dialog.locator('#presentation-title')).toContainText('Um foundation.');
   await expect(dialog.getByRole('button', { name: 'Continuar', exact: true })).toBeInViewport();
   for (let i = 0; i < 5; i++) await page.keyboard.press('ArrowRight');
   await expect(dialog.locator('#presentation-title')).toContainText('O portfólio se expande.');
