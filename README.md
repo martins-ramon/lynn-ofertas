@@ -1,6 +1,6 @@
 # LYNN — Ofertas e Produtos de IA TOTVS
 
-Site interativo em português, preparado para Replit. Distingue ofertas comercializáveis (T-Coins e soluções OES com modelo próprio) dos produtos de IA que dão valor à contratação de T-Coins. Inclui mapa de três camadas, perspectivas atual/futura, marcas oficiais, sete telas do Foundation, quatro telas do Garden, catálogo, laboratório de composição, wallet e apresentação executiva.
+Site interativo em português, preparado para Replit. A matriz Workflow Redesign organiza Agentes TOTVS, LYNN Enterprise e LYNN Garden, todas desenvolvidas a partir do Foundation. Inclui comparação por oferta e tela cheia, sete telas do Foundation, quatro telas do Garden, catálogo de 55 exemplos, laboratório de composição, wallet e apresentação executiva.
 
 ## Executar localmente
 
@@ -40,7 +40,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Os testes unitários cobrem a wallet, a taxonomia oferta/produto, o modelo indefinido do Garden em ambas as perspectivas e a exclusão de Garden/OES dos débitos simulados. Os testes de navegador validam os fluxos, as galerias, os diálogos e a acessibilidade em desktop e celular usando o servidor de produção. Execute um novo build antes de testar alterações na interface.
+Os testes unitários cobrem a wallet, a integridade do inventário e o enquadramento das três ofertas sobre o Foundation. Os testes de navegador validam os fluxos, as galerias, os diálogos e a acessibilidade em desktop e celular usando o servidor de produção. Execute um novo build antes de testar alterações na interface.
 
 Para registrar imagens da interface durante os testes:
 
@@ -54,45 +54,41 @@ As imagens ficam em `test-results/` (ignorado no Git).
 
 | Arquivo | Responsabilidade |
 |---|---|
+| `src/data/workflow.ts` | Conteúdo compartilhado da matriz Workflow Redesign |
 | `src/data/catalog.ts` | Portfólio, Agentes Padrão, classificação oferta/produto, modelos comerciais e relação com LYNN |
 | `src/data/garden.ts` | Quatro telas do protótipo Garden e suas legendas |
 | `src/data/foundation.ts` | Definições dos pilares, sete telas de referência, destaques e habilitadores de IA |
 | `src/data/wallet.ts` | Cenários e hipóteses da demonstração de consumo |
-| `src/components/Ecosystem.tsx` | Mapa de três camadas e perspectivas atual/futura |
-| `src/components/Overview.tsx` | Visão resumida das três camadas em uma tela no desktop |
+| `src/components/Ecosystem.tsx` | Seção Workflow Redesign e atalhos de consumo |
+| `src/components/WorkflowMatrix.tsx` | Tabela acessível compartilhada com filtros e rolagem |
+| `src/components/Overview.tsx` | Matriz em tela cheia, com filtros e acesso aos detalhes |
 | `src/components/Brand.tsx` | Logos oficiais LYNN e TOTVS para fundos claros e escuros |
 | `src/components/FoundationTour.tsx` | Exploração dos pilares, imagens com destaques, ampliação e zoom |
-| `src/components/PortfolioDetails.tsx` | Painéis do portfólio, oferta T-Coins, composição e fontes |
-| `src/components/GardenDetails.tsx` | Contexto e galeria do Garden, com modelo e convergência a definir |
+| `src/components/PortfolioDetails.tsx` | Painéis das ofertas e famílias, T-Coins, composição e fontes |
+| `src/components/GardenDetails.tsx` | Posicionamento AI Orchestration e galeria do Garden |
 | `src/components/ImageViewer.tsx` | Visualizador compartilhado das galerias, com zoom e navegação |
 | `src/components/WalletJourney.tsx` | Jornada de consumo e extrato conceitual |
 | `src/components/Catalog.tsx` | Busca e filtros por família, processo e produto |
 | `src/components/Presentation.tsx` | Narrativa executiva de seis etapas |
-| `src/styles.css`, `src/responsive.css`, `src/foundation.css` e `src/portfolio.css` | Identidade visual, marcas, taxonomia e adaptação de tela |
+| `src/styles.css`, `src/responsive.css`, `src/foundation.css` , `src/portfolio.css` e `src/workflow.css` | Identidade visual, marcas, taxonomia e adaptação de tela |
 | `scripts/prepare-media.mjs` | Otimização explícita das marcas e telas aprovadas para a experiência |
 | `server.mjs` e `.replit` | Execução em produção e Replit |
 
 ### Premissas editoriais
 
-- **Oferta** é o que pode ser comercializado. As ofertas efetivas hoje são **T-Coins** e as soluções de **OES com modelo próprio**. Start e expansão estruturam a contratação da oferta T-Coins.
-- **Agentes Padrão** (time de Produtos) e agentes de parceiros/franquias são **produtos de IA**. Entregam capacidades e dão razões para contratar e consumir a oferta T-Coins; não são tratados como ofertas isoladas.
-- A camada intermediária chama-se **Ofertas e Produtos de IA**. As categorias não são determinadas apenas por nome, interface ou existência de agentes.
-- **Garden é um produto com modelo comercial a definir**: T-Coins ou comercialização própria. Permanece indefinido tanto no modelo atual quanto na perspectiva futura, sem ser contado como oferta própria ou consumidor de T-Coins.
-- **Garden é um projeto independente**, com OpenAI Agents SDK e uso de LYNN Proxy para acesso aos modelos. Sua convergência ao Foundation completo está em discussão. Não se afirma que já foi construído sobre os três pilares.
-- Foundation LYNN é a base de IA B2B da TOTVS, lançada em fevereiro de 2026: Agent Builder, Enterprise Layer e Governance. Sustenta da concepção à operação governada em escala; não é vendido isoladamente nem apresentado como pacote de agentes.
-- Agent Builder concebe, constrói e orquestra agentes conectados a ERP, CRM e demais aplicações. Enterprise Layer fornece contexto dos dados, sistemas e regras do cliente e registra metadados. Governance governa uso e custo dos modelos, ações, rastreabilidade e regras de proteção.
-- Os metadados proprietários de uso e resultado permitem medir eficácia, otimizar custo por tarefa e melhorar as aplicações. Os modelos de IA são intercambiáveis.
-- T-Cloud, APIs, bases organizadas e sistemas atualizados são habilitadores da estratégia de IA. São apresentados como contexto de prontidão do ambiente do cliente, sem criar uma quarta camada comercial.
-- TaaS (Task as a Service) é explicado como trabalho executado como serviço: a volumetria de tarefas orienta o consumo. Start, pacotes e wallet detalham a dinâmica de créditos; não se promete retorno financeiro ou resultado comercial garantido.
-- OES já constrói sobre LYNN. Especialistas, Personalizados e Assistentes têm contratação própria hoje, sem consumo de T-Coins. Na perspectiva futura, o site ilustra a hipótese de substituir esse enquadramento por produtos vinculados à oferta T-Coins, não uma decisão comercial concluída.
-- Start oferece acesso e franquia mensal; expansão substitui a faixa anterior e torna-se recorrência. A contratação de Start é expressa.
-- Ativação e débito são eventos distintos. Uso e métrica determinam consumo.
-- Créditos têm validade de 180 dias por entrada. Faixas não se somam na cobrança; créditos válidos podem acumular.
-- A cobrança é independente de LYNN. Soluções externas podem integrar a wallet no futuro, sem precisar ser representadas como construídas sobre o Foundation.
-- Store e interface de extrato são identificados como em construção/conceituais, conforme os materiais.
-- Agentes Equals estão no inventário de Produtos; os detalhes registram a discussão de integração citada na reunião, sem afirmar migração concluída.
-- O inventário contém 43 Agentes Padrão, 10 especialistas OES e dois assistentes. O conjunto é aberto, e cada registro informa seu estágio.
-- A revisão estratégica tem como referência `model-context/totvs_ia_estrategia_lynn_foundation.md`, seções 3.1–3.3. As imagens administrativas ilustram gestão, permissões e registros; não são apresentadas como prova de todos os recursos de Governance nem confundidas com Store ou wallet.
+- A referência principal é `model-context/workflow-redesign.png`, versão digitada que complementa a foto `workflow-redesign.jpeg`. Ela substitui a taxonomia e a narrativa anteriores. Textos e capturas anteriores permanecem como referências de capacidades e exemplos.
+- **Agentes TOTVS**: automação para ganho de produtividade, reunindo Produtos, OES e franquias; foco em SMB e operadores dos softwares.
+- **LYNN Enterprise**: plataforma de Agent Engineering para engenheiros no mercado Mid / High.
+- **LYNN Garden**: plataforma de AI Orchestration para usuários não técnicos, com IA governada para uso corporativo.
+- Todas as ofertas são desenvolvidas a partir do **Foundation LYNN**, organizado em Builder, Governance e Layer.
+- LYNN Enterprise é uma oferta de plataforma. Enterprise Layer é um pilar da base comum.
+- Agentes TOTVS: OES por subscrição fixa de franquia de requisições, implantação e excedente; Agent Store por pacotes de T-Coins. Enterprise: subscrição por usuário + franquia mínima recorrente de requisições. Garden: franquia mínima recorrente por usuário.
+- SAM de Agentes TOTVS: R$ 6,7 bi; SOM: 15%, correspondente a R$ 1,0 bi na matriz. Enterprise e Garden referenciam um percentual do SAM indicado no BP, sem especificá-lo.
+- A wallet de T-Coins atravessa a matriz; o modelo de cada oferta deve seguir a transcrição confirmada do quadro. Não se deve deduzir valores ou regras a partir de materiais anteriores.
+- A matriz e os painéis usam `src/data/workflow.ts` como fonte única. A versão digitada esclarece GTM, competidores, SAM / SOM, decisores e modelos comerciais. Questões abertas (API de modelo próprio e exclusividade de MCPs / APIs) são preservadas como questões.
+- O inventário preserva 43 Agentes Padrão, 10 especialistas OES e dois assistentes. São exemplos dentro de Agentes TOTVS, com origem e estágio de cada material.
+- Start, faixas e validade de 180 dias vêm da reunião de 09/09/2026 e são apresentados como uma demonstração específica, sem generalizar suas regras às plataformas.
+- As capturas mostram interfaces de referência; o enquadramento das ofertas segue o Workflow Redesign.
 
 ### Marcas e telas
 
@@ -123,4 +119,4 @@ As simulações e escolhas são mantidas apenas em memória e reiniciam ao recar
 - Visualizador com `Esc`, telas anterior/próxima e região de imagem rolável pelo teclado quando ampliada.
 - Animações respeitam a preferência `prefers-reduced-motion`.
 - Jornada animada inicia apenas por ação do visitante e pode ser pausada.
-- Layouts para desktop, tablet e celular; estilos de impressão do mapa.
+- Layouts para desktop, tablet e celular; matriz comparativa com filtro de coluna para telas pequenas.

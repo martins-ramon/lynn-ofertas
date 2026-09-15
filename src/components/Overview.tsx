@@ -1,19 +1,10 @@
-import { ArrowDown, ArrowUp, ArrowUpRight, Globe2, LockKeyhole, Store, Wallet } from 'lucide-react';
-import { classificationLabel, portfolio, type PortfolioItem, type Vision } from '../data/catalog';
-import { Coin, Modal, ModelBadge, PortfolioIcon } from './Shared';
-import { LynnLogo, TotvsLogo } from './Brand';
-
-export default function Overview({ vision, setVision, onClose, onPortfolio }: { vision: Vision; setVision: (vision: Vision) => void; onClose: () => void; onPortfolio: (item: PortfolioItem) => void }) {
-  const future = vision === 'future';
-  return <Modal titleId="overview-title" onClose={onClose} className="overview-modal"><div className="overview-header"><div><span className="eyebrow overview-brandline"><TotvsLogo />OFERTAS E PRODUTOS DE IA</span><h2 id="overview-title">Ofertas para contratar. Produtos para utilizar.</h2></div><div className="segmented" aria-label="Perspectiva do mapa completo"><button className={!future ? 'selected' : ''} aria-pressed={!future} onClick={() => setVision('current')}>Modelo atual</button><button className={future ? 'selected' : ''} aria-pressed={future} onClick={() => setVision('future')}>Visão de evolução</button></div></div>
-    <div className="overview-map">
-      <div className="overview-layer"><div className="overview-label"><span>01</span><strong>Contratar<br />e ativar</strong></div><div className="overview-commerce"><div><Coin small /><h3>T-Coins</h3><p>Oferta comercial · Start + expansão</p></div><div><Store size={24} strokeWidth={1.5} /><h3>Store <small>Em construção</small></h3><p>Descobrir e ativar produtos de IA</p></div><div><Wallet size={24} strokeWidth={1.5} /><h3>Wallet do cliente</h3><p>Consumo dos produtos em T-Coins</p></div></div></div>
-      <div className="overview-arrow"><ArrowDown size={16} /><span>{future ? 'OES como produtos na hipótese de convergência · Garden segue com modelo a definir' : 'Padrão e parceiros dão valor à oferta T-Coins · OES são ofertas com modelo próprio'}</span><ArrowDown size={16} /></div>
-      <div className="overview-layer"><div className="overview-label"><span>02</span><strong>Ofertas e Produtos de IA</strong></div><div className="overview-offers">{portfolio.map(item => <button className={`accent-${item.accent} ${item.id === 'garden' ? 'overview-garden' : ''}`} key={item.id} onClick={() => onPortfolio(item)}><PortfolioIcon id={item.id} size={24} /><div><h3>{item.name}</h3><p>{item.id === 'garden' ? 'Produto · independente · LYNN Proxy' : classificationLabel(item, vision)}</p><ModelBadge item={item} vision={vision} /></div><ArrowUpRight size={15} /></button>)}<div className="overview-open"><span>···</span><p>Novos produtos e formatos · Builder para clientes · enquadramento comercial futuro a definir</p></div></div></div>
-      <div className="overview-arrow foundation-arrow"><ArrowUp size={16} /><span>Foundation: Padrão, OES e parceiros* · Garden usa Proxy; convergência a definir</span><ArrowUp size={16} /></div>
-      <div className="overview-layer"><div className="overview-label"><span>03</span><strong>Base<br />comum</strong></div><div className="overview-foundation"><div><h3>Foundation <LynnLogo /></h3><span><LockKeyhole size={12} />Não comercializado isoladamente</span></div><div className="overview-foundation-parts"><span>Agent Builder<small>CRIAR</small></span><span>Enterprise Layer<small>CONECTAR</small></span><span>Governance<small>GOVERNAR</small></span></div></div></div>
-    </div>
-    {future && <div className="overview-external"><Globe2 size={19} /><p><strong>Além de LYNN:</strong> outras soluções podem, futuramente, integrar a mesma wallet diretamente pela cobrança. Essa conexão não implica construção sobre o Foundation.</p><Wallet size={18} /></div>}
-    <div className="overview-bottom"><p><strong>Ofertas efetivas hoje: T-Coins e soluções OES com contratação própria.</strong><span>* Arquitetura de referência; integração e disponibilidade variam. Foundation não é oferta. Garden não é apresentado como construído sobre seus três pilares.</span></p><span>Clique em um item<br />para explorar</span></div>
+import { getPortfolioItem, type PortfolioItem } from '../data/catalog';
+import { BrandLockup } from './Brand';
+import { Modal } from './Shared';
+import WorkflowMatrix from './WorkflowMatrix';
+export default function Overview({ onClose, onPortfolio }: { onClose: () => void; onPortfolio: (item: PortfolioItem) => void }) {
+  return <Modal titleId="overview-title" onClose={onClose} className="workflow-modal">
+    <header className="workflow-modal-header"><BrandLockup /><div><span className="eyebrow">ESTRATÉGIA DE OFERTAS · Q1 2027</span><h2 id="overview-title">Workflow Redesign</h2><p>Todas as ofertas partem do Foundation LYNN.</p></div></header>
+    <WorkflowMatrix onOffer={id => onPortfolio(getPortfolioItem(id))} />
   </Modal>;
 }

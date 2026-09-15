@@ -6,6 +6,7 @@ import './styles.css';
 import './responsive.css';
 import './foundation.css';
 import './portfolio.css';
+import './workflow.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode><App /></React.StrictMode>,

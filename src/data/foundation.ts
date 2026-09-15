@@ -92,7 +92,7 @@ export const foundationPillars = [
     headline: 'Uma oportunidade vira um agente funcional.',
     description: 'O ambiente para conceber, construir e orquestrar agentes conectados ao ERP, CRM e demais aplicações TOTVS. Transforma uma necessidade de negócio em um fluxo capaz de raciocinar, acessar dados e executar ações, com autonomia ou participação humana.',
     value: 'Construção padronizada e reaproveitável, da ideia ao trabalho executado.',
-    note: 'Diagrama, instruções e manifesto são visões do Agent Builder. Garden é outro produto: um projeto independente que usa LYNN Proxy para acesso aos modelos. Sua convergência ao Foundation ainda está em discussão.',
+    note: 'Diagrama, instruções e manifesto são visões do Agent Builder. No Workflow Redesign, Agentes TOTVS, LYNN Enterprise e LYNN Garden são desenvolvidos a partir do mesmo Foundation.',
     initialScreen: 'builder-diagram',
   },
   {
@@ -100,7 +100,7 @@ export const foundationPillars = [
     headline: 'A inteligência participa da operação real.',
     description: 'Conecta os agentes aos dados, sistemas e regras de cada cliente, com contexto corporativo e acesso seguro. Registra metadados de uso e resultado que ajudam a medir e aprimorar as aplicações.',
     value: 'Respostas fundamentadas no negócio e ações conectadas à realidade da empresa.',
-    note: 'As telas ilustram a experiência de interação e acompanhamento. O papel da Enterprise Layer também inclui contexto, integração e registro de uso e resultado.',
+    note: 'As telas ilustram a experiência de interação e acompanhamento. O papel da Enterprise Layer também inclui contexto, integração e registro de uso e resultado. Este pilar do Foundation compõe a base da plataforma LYNN Enterprise, posicionada em Agent Engineering.',
     initialScreen: 'enterprise-conversation',
   },
   {

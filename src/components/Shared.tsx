@@ -1,8 +1,8 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Sprout, Blocks, ScanLine, SlidersHorizontal, Network, Fingerprint, X, ArrowUpRight, Coins } from 'lucide-react';
-import { commercialLabel, commercialModelFor, type PortfolioId, type PortfolioItem, type Vision } from '../data/catalog';
+import { commercialLabel, type PortfolioId, type PortfolioItem } from '../data/catalog';
 
-const portfolioIcons = { garden: Sprout, standard: Blocks, specialists: Fingerprint, custom: SlidersHorizontal, assistants: ScanLine, partners: Network };
+const portfolioIcons = { agents: Blocks, enterprise: Network, garden: Sprout, standard: Blocks, specialists: Fingerprint, custom: SlidersHorizontal, assistants: ScanLine, partners: Network };
 export function PortfolioIcon({ id, size = 24 }: { id: PortfolioId; size?: number }) {
   const Icon = portfolioIcons[id];
   return <Icon size={size} strokeWidth={1.6} aria-hidden="true" />;
@@ -45,10 +45,10 @@ export function TextLink({ children, onClick }: { children: ReactNode; onClick: 
   return <button className="text-link" onClick={onClick}>{children}<ArrowUpRight size={16} aria-hidden="true" /></button>;
 }
 
-export function ModelBadge({ item, vision }: { item: PortfolioItem; vision: Vision }) {
-  const model = commercialModelFor(item, vision);
-  return <span className={`model-badge ${model === 'own' ? 'own-model' : model === 'undecided' ? 'undecided-model' : ''}`}>
-    {model === 'tcoin' ? <Coins size={12} aria-hidden="true" /> : <span className="tiny-dot" />}
-    {commercialLabel(item, vision)}
+export function ModelBadge({ item }: { item: PortfolioItem }) {
+  const byUsage = item.id === 'standard';
+  return <span className={`model-badge ${item.oes ? 'own-model' : ''}`}>
+    {byUsage ? <Coins size={12} aria-hidden="true" /> : <span className="tiny-dot" />}
+    {commercialLabel(item)}
   </span>;
 }

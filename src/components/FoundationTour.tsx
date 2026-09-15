@@ -40,7 +40,7 @@ export default function FoundationTour() {
   };
 
   return <section className="foundation-tour section-shell" id="foundation" aria-labelledby="foundation-tour-title">
-    <SectionHeading index="02" eyebrow="DA CONCEPÇÃO À OPERAÇÃO EM ESCALA" title={<span id="foundation-tour-title">A base ganha forma.<br /><span className="muted-heading">O negócio ganha inteligência.</span></span>} text="O foundation de IA B2B da TOTVS, lançado em fevereiro de 2026. Um caminho padronizado e reaproveitável para construir, conectar e governar IA, com acesso a modelos intercambiáveis.">
+    <SectionHeading index="02" eyebrow="DA CONCEPÇÃO À OPERAÇÃO EM ESCALA" title={<span id="foundation-tour-title">A base ganha forma.<br /><span className="muted-heading">O negócio ganha inteligência.</span></span>} text="Builder, Governance e Layer formam a base comum de Agentes TOTVS, LYNN Enterprise e LYNN Garden. As telas mostram como construir, conectar e governar IA com modelos intercambiáveis.">
       <div className="foundation-signature"><LynnLogo /><span>FOUNDATION DE INTELIGÊNCIA ARTIFICIAL</span></div>
     </SectionHeading>
     <div className="foundation-tabs" role="tablist" aria-label="Pilares do Foundation">{foundationPillars.map((item, index) => {

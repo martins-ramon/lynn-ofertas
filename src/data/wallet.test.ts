@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { activate, balance, closeCycle, getJourneyState, renewCycle, useCredits } from './wallet';
-import { agents, commercialLabel, commercialModelFor, compositionCounts, constructionLabel, getPortfolioItem, portfolio, portfolioNature } from './catalog';
+import { agents, constructionLabel, getPortfolioItem, portfolioNature } from './catalog';
 
 describe('cenários didáticos da wallet', () => {
   it('ativação não debita e não duplica agentes ativos', () => {
@@ -66,30 +66,15 @@ describe('integridade editorial', () => {
     expect(agents.filter(agent => agent.family === 'assistants')).toHaveLength(2);
     expect(new Set(agents.map(agent => agent.id)).size).toBe(agents.length);
   });
-  it('mantém contratação própria OES hoje e convergência apenas prevista', () => {
-    for (const id of ['specialists', 'custom', 'assistants'] as const) {
-      expect(commercialLabel(getPortfolioItem(id), 'current')).toBe('Contratação própria');
-      expect(commercialLabel(getPortfolioItem(id), 'future')).toContain('prevista');
-      expect(portfolioNature(getPortfolioItem(id), 'current')).toBe('offer');
-      expect(portfolioNature(getPortfolioItem(id), 'future')).toBe('product');
+  it('as três ofertas partem do Foundation e as famílias pertencem a Agentes TOTVS', () => {
+    for (const id of ['agents', 'enterprise', 'garden'] as const) {
+      const item = getPortfolioItem(id);
+      expect(portfolioNature(item)).toBe('offer');
+      expect(constructionLabel(item)).toBe('Foundation LYNN');
     }
-  });
-  it('não transforma Garden em oferta nem atribui T-Coins ou Foundation completo', () => {
-    const garden = getPortfolioItem('garden');
-    for (const vision of ['current', 'future'] as const) {
-      expect(commercialModelFor(garden, vision)).toBe('undecided');
-      expect(portfolioNature(garden, vision)).toBe('product');
-      expect(commercialLabel(garden, vision)).toBe('Modelo a definir');
-      expect(compositionCounts(['garden'], vision)).toEqual({ total: 1, tcoin: 0, own: 0, undecided: 1 });
+    for (const id of ['standard', 'specialists', 'custom', 'assistants', 'partners'] as const) {
+      expect(portfolioNature(getPortfolioItem(id))).toBe('product');
     }
-    expect(constructionLabel(garden, 'current')).toContain('LYNN Proxy');
-    expect(constructionLabel(garden, 'future')).toContain('a definir');
-  });
-  it('classifica Padrão e parceiros como produtos; ofertas do meio são apenas OES hoje', () => {
-    expect(getPortfolioItem('standard').name).toBe('Agentes Padrão');
-    expect(portfolio.filter(item => portfolioNature(item, 'current') === 'offer').every(item => item.oes)).toBe(true);
-    expect(compositionCounts(portfolio.map(item => item.id), 'current')).toEqual({ total: 6, tcoin: 2, own: 3, undecided: 1 });
-    expect(compositionCounts(portfolio.map(item => item.id), 'future')).toEqual({ total: 6, tcoin: 5, own: 0, undecided: 1 });
   });
   it('a wallet demonstra exclusivamente produtos Padrão, sem cobrança de Garden ou OES', () => {
     for (let step = 0; step < 8; step++) {

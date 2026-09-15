@@ -1,6 +1,5 @@
-export type Vision = 'current' | 'future';
-export type PortfolioId = 'garden' | 'standard' | 'specialists' | 'custom' | 'assistants' | 'partners';
-export type CommercialModel = 'tcoin' | 'own' | 'undecided';
+import { workflowOffers } from './workflow';
+export type PortfolioId = 'agents' | 'enterprise' | 'garden' | 'standard' | 'specialists' | 'custom' | 'assistants' | 'partners';
 export type PortfolioNature = 'offer' | 'product';
 export type Status = 'Em desenvolvimento' | 'Planejado para 2027' | 'Em discovery' | 'Disponibilidade a confirmar' | 'Disponível no material';
 
@@ -15,34 +14,30 @@ export interface PortfolioItem {
   highlights: string[];
   source: string;
   oes: boolean;
-  commercialModel: CommercialModel;
-  foundationRelation: 'foundation' | 'proxy';
 }
 
 export const portfolio: PortfolioItem[] = [
-  {
-    id: 'garden', name: 'LYNN Garden', owner: 'Eficiência operacional', accent: 'mint',
-    tagline: 'Da sua ideia ao seu agente.',
-    description: 'Produto de IA para criar e utilizar agentes de eficiência operacional por meio de instruções, templates e conexões. É um protótipo em validação controlada, originado para uso interno na TOTVS. Seu modelo de comercialização está em discussão: T-Coins ou modelo próprio.',
-    audience: 'Pessoas e equipes que querem transformar tarefas repetitivas em tempo para o que importa.',
-    highlights: ['Criar agentes com templates, instruções e conexões; conversar e organizar agentes do usuário', 'Conexões apresentadas no protótipo: Gmail, Drive, Docs, Sheets, Calendar, Chat, Slides e Slack', 'Projeto independente, construído com OpenAI Agents SDK; usa LYNN Proxy para acesso aos modelos', 'Convergência ao Foundation LYNN e modelo comercial ainda a definir'],
-    source: 'LYNN Garden — contexto fornecido em lynn_garden.md e quatro telas do protótipo; esclarecimentos comerciais do projeto.', oes: false, commercialModel: 'undecided', foundationRelation: 'proxy',
-  },
+  ...workflowOffers.map((offer): PortfolioItem => ({
+    id: offer.id, name: offer.name, owner: offer.group, accent: offer.accent,
+    tagline: offer.cells.category[0], description: offer.cells.value[0],
+    audience: offer.cells.audience.join(' · '), highlights: offer.cells.attributes,
+    source: 'Matriz Workflow Redesign, versão digitada · GTM Q1 2027.', oes: false,
+  })),
   {
     id: 'standard', name: 'Agentes Padrão', owner: 'Time de Produtos', accent: 'cyan',
     tagline: 'Inteligência dentro da operação.',
-    description: 'Produtos de IA desenvolvidos pelos times de Produtos para automatizar e apoiar rotinas dos sistemas TOTVS. Cada agente atende uma necessidade concreta e torna tangível o valor da oferta T-Coins, que é o objeto de contratação.',
+    description: 'Produtos de IA desenvolvidos pelos times de Produtos para automatizar e apoiar rotinas dos sistemas TOTVS. Integram Agentes TOTVS, a oferta de automação para ganho de produtividade do Workflow Redesign, com consumo por uso.',
     audience: 'Empresas que querem ganhar eficiência nos processos que já executam com os produtos TOTVS.',
     highlights: ['43 agentes em 16 segmentos e linhas no material de agosto/2026', 'Do planejamento educacional à auditoria de folha e à gestão de estoque', 'Ativação prevista no Store, conforme disponibilização e evolução de cada agente'],
-    source: 'Agentes de IA — Segmentos, Fase 1 + Fase 2, agosto/2026, páginas 2–24; nomenclatura e taxonomia atualizadas conforme o projeto.', oes: false, commercialModel: 'tcoin', foundationRelation: 'foundation',
+    source: 'Agentes de IA — Segmentos, Fase 1 + Fase 2, agosto/2026, páginas 2–24; nomenclatura e taxonomia atualizadas conforme o projeto.', oes: false,
   },
   {
     id: 'specialists', name: 'Agentes Especialistas', owner: 'OES · Ofertas e Serviços / IDeIA', accent: 'lavender',
     tagline: 'Especialização que move processos.',
     description: 'Agentes com foco em processos de negócio, desenvolvidos por OES sobre LYNN. O material reúne rotinas fiscais, financeiras, de compras e de recursos humanos para Protheus, RM e Datasul.',
     audience: 'Equipes que precisam de automações especializadas em processos recorrentes do negócio.',
-    highlights: ['10 especialistas relacionados no material OES', 'Fiscal, contas a pagar, contas a receber, compras, conciliação e férias', 'Construídos sobre LYNN; contratação própria hoje e convergência pretendida para T-Coin'],
-    source: 'Agentes Especialistas e Personalizados, página 1; esclarecimentos do responsável pelo projeto.', oes: true, commercialModel: 'own', foundationRelation: 'foundation',
+    highlights: ['10 especialistas relacionados no material OES', 'Fiscal, contas a pagar, contas a receber, compras, conciliação e férias', 'Integram Agentes TOTVS, desenvolvidos a partir do Foundation; modelo OES na matriz Workflow Redesign'],
+    source: 'Agentes Especialistas e Personalizados, página 1; esclarecimentos do responsável pelo projeto.', oes: true,
   },
   {
     id: 'custom', name: 'Agentes Personalizados', owner: 'OES · Ofertas e Serviços / IDeIA', accent: 'lavender',
@@ -50,7 +45,7 @@ export const portfolio: PortfolioItem[] = [
     description: 'Agentes construídos sobre LYNN para o processo e as regras de cada cliente. A jornada começa identificando oportunidades, prioriza o retorno esperado e segue com implantação e sustentação.',
     audience: 'Empresas com necessidades específicas que pedem um escopo desenhado para sua operação.',
     highlights: ['Descoberta: oportunidades, análise de retorno e priorização', 'Implantação: desenvolvimento de acordo com as regras do cliente', 'Sustentação: acompanhamento e manutenção em produção'],
-    source: 'Agentes Especialistas e Personalizados, páginas 2–3; esclarecimentos do responsável pelo projeto.', oes: true, commercialModel: 'own', foundationRelation: 'foundation',
+    source: 'Agentes Especialistas e Personalizados, páginas 2–3; esclarecimentos do responsável pelo projeto.', oes: true,
   },
   {
     id: 'assistants', name: 'Assistentes de IA', owner: 'OES · Ofertas e Serviços / IDeIA', accent: 'lavender',
@@ -58,15 +53,15 @@ export const portfolio: PortfolioItem[] = [
     description: 'Assistentes para ler imagens e documentos, analisar informações e gerar resultados conforme a diretriz do cliente. Apoiam as pessoas na interpretação do conteúdo e na execução dos processos.',
     audience: 'Equipes que lidam com documentos, evidências visuais e validação de informações.',
     highlights: ['Leitura de imagens e leitura de documentos', 'Entrada de conteúdo → leitura e validação → resultado', 'Os dois assistentes são informados como disponíveis no material de referência'],
-    source: 'Agentes Especialistas e Personalizados, páginas 4–6; esclarecimentos do responsável pelo projeto.', oes: true, commercialModel: 'own', foundationRelation: 'foundation',
+    source: 'Agentes Especialistas e Personalizados, páginas 4–6; esclarecimentos do responsável pelo projeto.', oes: true,
   },
   {
     id: 'partners', name: 'Parceiros e franquias', owner: 'Ecossistema TOTVS', accent: 'peach',
     tagline: 'Mais criadores. Mais possibilidades.',
-    description: 'Parceiros e franquias ampliam o portfólio ao desenvolver produtos de IA sobre o Foundation LYNN e publicá-los no Store. Esses agentes geram razões para contratar e consumir a oferta T-Coins; não são ofertas comerciais isoladas neste modelo.',
+    description: 'Parceiros e franquias ampliam o portfólio ao desenvolver produtos de IA sobre o Foundation LYNN e publicá-los no Store. Integram a oferta Agentes TOTVS na matriz Workflow Redesign.',
     audience: 'Parceiros e franquias que querem transformar sua especialização em produtos de IA para clientes TOTVS.',
-    highlights: ['Construir sobre LYNN e publicar no Store', 'Consumo em T-Coin no modelo pretendido para o ecossistema', 'Referência de remuneração 70/30 no briefing; condições e repasses ainda em definição'],
-    source: 'Briefing do projeto e reunião de 09/09/2026, 00:34:19–00:51:52; esclarecimento da taxonomia comercial.', oes: false, commercialModel: 'tcoin', foundationRelation: 'foundation',
+    highlights: ['Construir sobre LYNN e publicar no Store', 'Consumo em T-Coin no modelo pretendido para o ecossistema', 'GTM Q1 2027: precificação, repasse e homologação de agentes para franquias'],
+    source: 'Workflow Redesign; materiais anteriores preservados como referência de capacidades.', oes: false,
   },
 ];
 
@@ -157,43 +152,25 @@ export const agents: Agent[] = [
 export const getPortfolioItem = (id: PortfolioId) => portfolio.find(item => item.id === id)!;
 export const normalize = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
-export function commercialModelFor(item: PortfolioItem, vision: Vision): CommercialModel {
-  // Garden stays undecided in both perspectives. OES migration is hypothetical.
-  if (item.commercialModel === 'undecided') return 'undecided';
-  if (item.oes && vision === 'future') return 'tcoin';
-  return item.commercialModel;
+export function portfolioNature(item: PortfolioItem): PortfolioNature {
+  return ['agents', 'enterprise', 'garden'].includes(item.id) ? 'offer' : 'product';
 }
 
-export function portfolioNature(item: PortfolioItem, vision: Vision): PortfolioNature {
-  return commercialModelFor(item, vision) === 'own' ? 'offer' : 'product';
+export function classificationLabel(item: PortfolioItem) {
+  if (portfolioNature(item) === 'offer') return item.id === 'agents' ? 'Oferta · Agentes' : 'Oferta · Plataforma';
+  return 'Agentes TOTVS · ' + (item.oes ? 'OES' : item.id === 'partners' ? 'Franquias e parceiros' : 'Produtos');
 }
 
-export function classificationLabel(item: PortfolioItem, vision: Vision) {
-  if (portfolioNature(item, vision) === 'offer') return 'Oferta OES';
-  if (item.oes && vision === 'future') return 'Produto de IA · cenário futuro';
-  return 'Produto de IA';
+export function commercialLabel(item: PortfolioItem) {
+  const offer = workflowOffers.find(offer => offer.id === item.id);
+  if (offer) return offer.commercialSummary;
+  if (item.oes) return 'Subscrição por franquia + implantação';
+  if (item.id === 'partners') return 'Agent Store · Pacote de T-Coins';
+  return 'Consumo por uso · T-Coins';
 }
 
-export function commercialLabel(item: PortfolioItem, vision: Vision) {
-  if (item.commercialModel === 'undecided') return 'Modelo a definir';
-  if (item.oes) return vision === 'current' ? 'Contratação própria' : 'T-Coins · convergência prevista';
-  if (item.id === 'partners') return 'Consumo de T-Coins previsto';
-  return 'Consome T-Coins';
-}
-
-export function constructionLabel(item: PortfolioItem, vision: Vision) {
-  if (item.foundationRelation === 'proxy') return vision === 'current' ? 'Independente · usa LYNN Proxy' : 'Convergência ao Foundation a definir';
+export function constructionLabel(_item: PortfolioItem) {
   return 'Foundation LYNN';
-}
-
-export function compositionCounts(ids: PortfolioId[], vision: Vision) {
-  const items = portfolio.filter(item => ids.includes(item.id));
-  return {
-    total: items.length,
-    tcoin: items.filter(item => commercialModelFor(item, vision) === 'tcoin').length,
-    own: items.filter(item => commercialModelFor(item, vision) === 'own').length,
-    undecided: items.filter(item => commercialModelFor(item, vision) === 'undecided').length,
-  };
 }
 
 export { foundationPillars as foundations } from './foundation';

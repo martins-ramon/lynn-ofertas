@@ -7,44 +7,32 @@ test.beforeEach(async ({ page }) => {
   await page.evaluate(() => document.fonts.ready);
 });
 
-test('mapa distingue ofertas de produtos e mantém Garden com modelo a definir', async ({ page }) => {
+test('matriz compara as três ofertas e abre as famílias de Agentes TOTVS', async ({ page }) => {
   const map = page.locator('#ecossistema');
-  await expect(map.locator('.own-model')).toHaveCount(3);
-  await expect(map.getByRole('heading', { name: 'Ofertas e Produtos de IA', exact: true })).toBeVisible();
-  await expect(map.locator('.foundation-backed-portfolio')).not.toContainText('LYNN Garden');
-  await expect(map.locator('.garden-map-card')).toContainText('Modelo a definir');
-  await map.locator('.offer-card').filter({ hasText: 'Agentes Especialistas' }).click();
+  const table = map.getByRole('table');
+  await expect(table.getByRole('button')).toHaveCount(3);
+  await expect(table).toContainText('Redução do TCO');
+  await expect(table).toContainText('SOM: 15% → R$ 1,0 bi');
+  await expect(table).toContainText('Subscrição por usuário + franquia recorrente mínima de requisições.');
+  await expect(table).not.toContainText('Transcrição em confirmação');
+  await expect(map.locator('.workflow-foundation')).toContainText('Base comum de todas as ofertas');
+  await expect(table.getByRole('rowheader')).toHaveText(['Oferta', 'Categoria', 'Proposta de valor', 'SAM / SOM', 'Mercado / persona / decisor', 'Atributos e diferenciais', 'Competidores', 'GTM · Q1 2027', 'Modelo comercial']);
+  await map.locator('.workflow-filters').getByRole('button', { name: 'LYNN Enterprise', exact: true }).click();
+  await expect(table.getByRole('button')).toHaveCount(1);
+  await expect(table).toContainText('Agent Engineering');
+  await map.locator('.workflow-filters').getByRole('button', { name: 'Todas', exact: true }).click();
+  await table.getByRole('button', { name: 'Agentes TOTVS', exact: true }).click();
   const dialog = page.getByRole('dialog');
+  await dialog.getByRole('button', { name: /Agentes Especialistas/ }).click();
   await expect(dialog.getByRole('heading', { name: 'Agentes Especialistas', exact: true })).toBeVisible();
   await expect(dialog.locator('.detail-facts')).toContainText('Foundation LYNN');
-  await expect(dialog.locator('.detail-facts')).toContainText('Contratação própria');
   await page.keyboard.press('Escape');
-  await expect(dialog).toHaveCount(0);
-  await map.getByRole('button', { name: /ATIVAÇÃO Store/ }).click();
+  await map.getByRole('button', { name: /Store/ }).click();
   await dialog.getByRole('switch', { name: 'Incluir exemplo Agentes Especialistas', exact: true }).click();
-  await expect(dialog.locator('.store-lab-summary > div').nth(1)).toContainText('0');
-  await expect(dialog.locator('.store-lab-summary > div').nth(2)).toContainText('1');
+  await expect(dialog.locator('.store-lab-summary > div').first()).toContainText('1');
+  await expect(dialog.locator('.store-lab-summary > div').nth(1)).toContainText('1');
   await dialog.getByRole('switch', { name: 'Remover exemplo Agentes Especialistas', exact: true }).click();
   await expect(dialog.locator('.store-lab-summary > div').first()).toContainText('0');
-  await dialog.getByRole('switch', { name: 'Incluir exemplo LYNN Garden', exact: true }).click();
-  await expect(dialog.locator('.store-lab-summary > div').nth(1)).toContainText('0');
-  await expect(dialog.locator('.store-lab-summary > div').nth(2)).toContainText('0');
-  await expect(dialog.locator('.store-lab-summary > div').nth(3)).toContainText('1');
-  await dialog.getByRole('button', { name: 'Fechar painel' }).click();
-  await map.getByRole('button', { name: 'Visão de evolução' }).click();
-  await expect(map.locator('.own-model')).toHaveCount(0);
-  await expect(map.locator('.offer-card .model-badge').filter({ hasText: 'convergência prevista' })).toHaveCount(3);
-  await expect(map.locator('.garden-map-card')).toContainText('Modelo a definir');
-  await map.getByRole('button', { name: /ATIVAÇÃO Store/ }).click();
-  await dialog.getByRole('switch', { name: 'Incluir exemplo LYNN Garden', exact: true }).click();
-  await expect(dialog.locator('.store-lab-summary > div').nth(1)).toContainText('0');
-  await expect(dialog.locator('.store-lab-summary > div').nth(3)).toContainText('1');
-  await dialog.getByRole('button', { name: 'Fechar painel', exact: true }).click();
-  await expect(map.locator('.external-connection')).toBeVisible();
-  await map.getByRole('button', { name: /E o próximo capítulo/ }).click();
-  await expect(map.getByRole('heading', { name: 'Builder para o cliente' })).toBeVisible();
-  await map.getByRole('button', { name: 'Criar Agent Builder' }).click();
-  await expect(map.locator('.foundation-detail')).toContainText('conceber, construir e orquestrar');
 });
 
 test('jornada separa ativação, consumo, substituição e saldo acumulado', async ({ page }) => {
@@ -105,7 +93,7 @@ test('apresentação navega por teclado e devolve o foco ao sair', async ({ page
   await expect(dialog.locator('#presentation-title')).toContainText('Um foundation.');
   await expect(dialog.getByRole('button', { name: 'Continuar', exact: true })).toBeInViewport();
   for (let i = 0; i < 5; i++) await page.keyboard.press('ArrowRight');
-  await expect(dialog.locator('#presentation-title')).toContainText('O portfólio se expande.');
+  await expect(dialog.locator('#presentation-title')).toContainText('Uma estratégia comum.');
   await expect(dialog.getByRole('button', { name: 'Explorar o site', exact: true })).toBeInViewport();
   await page.keyboard.press('ArrowLeft');
   await expect(dialog.locator('#presentation-title')).toContainText('Uma wallet.');
@@ -114,38 +102,35 @@ test('apresentação navega por teclado e devolve o foco ao sair', async ({ page
   await expect(trigger).toBeFocused();
 });
 
-test('mapa de tela cheia conecta as três camadas e abre o portfólio', async ({ page }, testInfo) => {
-  await page.getByRole('button', { name: 'Ver mapa em tela cheia' }).click();
-  const dialog = page.getByRole('dialog');
-  await expect(dialog.getByRole('heading', { name: 'Ofertas para contratar. Produtos para utilizar.' })).toBeVisible();
-  await expect(dialog.locator('.overview-label').nth(1)).toContainText('Ofertas e Produtos de IA');
-  await expect(dialog.locator('.overview-garden')).toContainText('independente · LYNN Proxy');
-  await expect(dialog.locator('.overview-garden')).toContainText('Modelo a definir');
-  if (testInfo.project.name === 'desktop') {
-    for (const viewport of [{ width: 1440, height: 960 }, { width: 1366, height: 768 }]) {
-      await page.setViewportSize(viewport);
-      await expect(dialog.locator('.overview-commerce')).toBeInViewport({ ratio: 1 });
-      await expect(dialog.locator('.overview-foundation')).toBeInViewport({ ratio: 1 });
-    }
-  }
+test('matriz em tela cheia mantém conteúdo, filtros, acesso aos detalhes e foco', async ({ page }, testInfo) => {
+  const trigger = page.getByRole('button', { name: 'Ver matriz em tela cheia' });
+  const originalRows = await page.locator('#ecossistema tbody').innerText();
+  await trigger.click();
+  const dialog = page.locator('.workflow-modal');
+  await expect(dialog.getByRole('heading', { name: 'Workflow Redesign', exact: true })).toBeVisible();
+  expect(await dialog.locator('tbody').innerText()).toBe(originalRows);
+  await dialog.locator('.workflow-filters').getByRole('button', { name: 'LYNN Garden', exact: true }).click();
+  await expect(dialog.getByRole('table').getByRole('button')).toHaveCount(1);
+  await expect(dialog.getByRole('table')).toContainText('AI Orchestration');
   const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
-  expect(audit.violations.map(item => item.id)).toEqual([]);
-  await dialog.getByRole('button', { name: 'Visão de evolução' }).click();
-  await expect(dialog.locator('.overview-external')).toBeVisible();
+  expect(audit.violations.map(item => ({ id: item.id, nodes: item.nodes.map(node => node.failureSummary) }))).toEqual([]);
   if (process.env.CAPTURE_UI) await page.screenshot({ path: testInfo.outputPath('overview.png') });
-  await dialog.getByRole('button', { name: /Agentes Personalizados/ }).click();
+  await page.keyboard.press('Escape');
+  await expect(trigger).toBeFocused();
+  await trigger.click();
+  await dialog.getByRole('table').getByRole('button', { name: 'LYNN Enterprise', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(1);
-  await expect(page.getByRole('dialog').getByRole('heading', { name: 'Agentes Personalizados', exact: true })).toBeVisible();
+  await expect(page.getByRole('dialog').getByRole('heading', { name: 'LYNN Enterprise', exact: true })).toBeVisible();
+  await expect(page.getByRole('dialog')).toContainText('Agent Engineering');
 });
 
-test('Garden mostra quatro telas sem afirmar oferta própria, T-Coins ou Foundation completo', async ({ page }, testInfo) => {
-  await page.locator('.garden-map-card').click();
+test('Garden apresenta AI Orchestration sobre Foundation e preserva as quatro telas', async ({ page }, testInfo) => {
+  await page.locator('#ecossistema table').getByRole('button', { name: 'LYNN Garden', exact: true }).click();
   const details = page.locator('.detail-modal');
   await expect(details.getByRole('heading', { name: 'LYNN Garden', exact: true })).toBeVisible();
-  await expect(details.locator('.detail-facts')).toContainText('Independente · usa LYNN Proxy');
-  await expect(details.locator('.detail-facts')).toContainText('Modelo a definir');
-  await expect(details.locator('.garden-decisions')).toContainText('OpenAI Agents SDK');
-  await expect(details.locator('.garden-decisions')).toContainText('não equivale à construção sobre os três pilares');
+  await expect(details.locator('.detail-facts')).toContainText('Foundation LYNN');
+  await expect(details).toContainText('AI Orchestration');
+  await expect(details.locator('.garden-decisions')).toContainText('Franquia mínima recorrente por usuário');
   const picture = details.locator('.garden-screen-open img');
   for (const tab of ['Conexões', 'Criar agente', 'Meus agentes', 'Chat']) {
     await details.getByRole('button', { name: tab, exact: true }).click();
@@ -172,7 +157,7 @@ test('Garden mostra quatro telas sem afirmar oferta própria, T-Coins ou Foundat
   await expect(details.getByRole('button', { name: /Ampliar tela: LYNN Garden/ })).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await expect(page.locator('.garden-map-card')).toBeFocused();
+  await expect(page.locator('#ecossistema table').getByRole('button', { name: 'LYNN Garden', exact: true })).toBeFocused();
   await expect(page.getByText('Agentes Enterprise', { exact: true })).toHaveCount(0);
 });
 

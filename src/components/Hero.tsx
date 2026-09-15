@@ -3,7 +3,7 @@ import { ArrowDown, ArrowUpRight, Play, Layers3 } from 'lucide-react';
 export function ArchitectureScene({ compact = false }: { compact?: boolean }) {
   return <div className={`architecture-scene ${compact ? 'scene-compact' : ''}`}>
     <div className="scene-halo" /><div className="scene-orbit orbit-one" /><div className="scene-orbit orbit-two" />
-    <svg viewBox="0 0 600 480" className="scene-svg" role="img" aria-label="Arquitetura de referência em três camadas: oferta T-Coins e ativação no topo, Ofertas e Produtos de IA ao centro e Foundation LYNN como base. Garden tem conexão parcial via LYNN Proxy, detalhada no mapa.">
+    <svg viewBox="0 0 600 480" className="scene-svg" role="img" aria-label="Foundation LYNN como base comum de Agentes TOTVS, LYNN Enterprise e LYNN Garden, com wallet de T-Coins.">
       <defs>
         <linearGradient id="baseTop" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#25394a" /><stop offset="1" stopColor="#0d1825" /></linearGradient>
         <linearGradient id="middleTop" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#28403d" /><stop offset="1" stopColor="#14252c" /></linearGradient>
@@ -28,7 +28,7 @@ export function ArchitectureScene({ compact = false }: { compact?: boolean }) {
           <path d={`M${Number(x) - 13} ${y}l13-7 13 7-13 7Z`} fill="none" stroke={String(color)} strokeWidth="1.5" />
           <path d={`M${Number(x) - 13} ${Number(y) + 5}l13 7 13-7`} fill="none" stroke={String(color)} strokeWidth="1.5" />
         </g>)}
-        <text x="88" y="234" transform="rotate(28 88 234)" fill="#a8c8ba" fontSize="10" letterSpacing="2.5">OFERTAS E PRODUTOS DE IA</text>
+        <text x="88" y="234" transform="rotate(28 88 234)" fill="#a8c8ba" fontSize="10" letterSpacing="2.5">AGENTES E PLATAFORMAS</text>
       </g>
       <g stroke="#b8f293" strokeDasharray="4 6" opacity=".6" className="scene-connections"><path d="M183 130v55M300 155v80M416 130v55" /></g>
       <g className="scene-top">
@@ -41,7 +41,7 @@ export function ArchitectureScene({ compact = false }: { compact?: boolean }) {
           <ellipse cx="300" cy="83" rx="38" ry="21" fill="url(#coinTop)" /><ellipse cx="300" cy="83" rx="31" ry="16" fill="none" stroke="#5d9545" strokeOpacity=".5" />
           <text x="299" y="93" textAnchor="middle" fill="#224126" fontWeight="700" fontSize="29" transform="skewX(-12)">T</text>
         </g>
-        <text x="300" y="150" fill="#d3ebc7" fontSize="11" letterSpacing="4" textAnchor="middle">T-COIN + STORE</text>
+        <text x="300" y="150" fill="#d3ebc7" fontSize="11" letterSpacing="4" textAnchor="middle">WALLET DE T-COINS</text>
       </g>
       <circle cx="70" cy="306" r="3" fill="#89dbd6" /><circle cx="530" cy="306" r="3" fill="#89dbd6" /><circle cx="300" cy="8" r="3" fill="#b8f293" />
     </svg>
@@ -55,11 +55,11 @@ export default function Hero({ onPresent }: { onPresent: () => void }) {
     <div className="hero-copy">
       <div className="eyebrow hero-eyebrow"><span className="status-dot" />O UNIVERSO DE IA DA TOTVS</div>
       <h1 id="hero-title">Um foundation.<br />Infinitas<br /><span>possibilidades.</span></h1>
-      <p>Você contrata ofertas. Utiliza produtos de IA. Entenda como T-Coins, soluções OES, Agentes Padrão e LYNN Garden se organizam — e qual é o papel do Foundation LYNN.</p>
-      <div className="hero-actions"><a href="#ecossistema" className="button primary">Explore o ecossistema<ArrowUpRight size={19} /></a><button className="button quiet" onClick={onPresent}><Play size={16} />Comece pela visão geral</button></div>
-      <div className="hero-meta"><span>Uma experiência interativa</span><span className="meta-divider" />Universo TOTVS · 2026</div>
+      <p>Agentes TOTVS para ganhar produtividade. LYNN Enterprise para construir agentes. LYNN Garden para orquestrar IA no trabalho. Três caminhos de valor, desenvolvidos a partir do mesmo Foundation.</p>
+      <div className="hero-actions"><a href="#ecossistema" className="button primary">Explore a matriz de ofertas<ArrowUpRight size={19} /></a><button className="button quiet" onClick={onPresent}><Play size={16} />Comece pela visão geral</button></div>
+      <div className="hero-meta"><span>Uma experiência interativa</span><span className="meta-divider" />Workflow Redesign · Q1 2027</div>
     </div>
     <div className="hero-visual"><ArchitectureScene /><div className="scene-caption"><span>CONTRATAR</span><i />UTILIZAR<i />CONSTRUIR</div></div>
-    <div className="hero-bottom"><span>Da arquitetura à experiência do cliente.</span><a href="#ecossistema" aria-label="Descer para o mapa do ecossistema"><ArrowDown size={18} /></a><span>Desça para conectar os pontos</span></div>
+    <div className="hero-bottom"><span>Da arquitetura à experiência do cliente.</span><a href="#ecossistema" aria-label="Descer para a matriz Workflow Redesign"><ArrowDown size={18} /></a><span>Desça para conectar os pontos</span></div>
   </section>;
 }
